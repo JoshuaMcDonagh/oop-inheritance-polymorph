@@ -4,8 +4,8 @@ public class Cube extends Shape3D {
     double size;
 
     public Cube(double size) {
+        this(new Rectangle(size, size));
         this.size = size;
-        //Cube(new Rectangle(this.size, this.size));
     }
 
     private Cube(Rectangle base) {
@@ -14,6 +14,6 @@ public class Cube extends Shape3D {
 
     @Override
     public double calculateVolume() {
-        return 0;
+        return base.calculateArea() * this.size;
     }
 }

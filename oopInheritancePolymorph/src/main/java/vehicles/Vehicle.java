@@ -4,12 +4,14 @@ public abstract class Vehicle {
     String make;
     String model;
     int speed;
+    int maxSpeed;
     Engine engine;
 
 
-    public Vehicle(String make, String model) {
+    public Vehicle(String make, String model, int maxSpeed) {
         this.make = make;
         this.model = model;
+        this.maxSpeed = maxSpeed;
     }
 
     public void start() {

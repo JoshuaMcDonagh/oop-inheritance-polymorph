@@ -12,7 +12,7 @@ public class Sphere extends Shape3D {
 
         if (base instanceof Circle) {
             double cubedRadius = Math.pow(((Circle) base).radius, 3);
-            result = Math.PI * cubedRadius * (4 / 3);
+            result = Math.PI * cubedRadius * (4.0 / 3.0);
         } else {
             result = 0;
         }

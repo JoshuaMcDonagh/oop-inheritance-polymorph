@@ -3,10 +3,11 @@ package vehicles;
 public class Motorcycle extends Vehicle {
     boolean hasSidecar;
 
-    public Motorcycle(String make, String model, int horsepower, String fuelType, boolean hasSideCar) {
-        super(make, model);
+    public Motorcycle(String make, String model, int horsepower, String fuelType, boolean hasSideCar, int maxSpeed) {
+        super(make, model, maxSpeed);
         this.hasSidecar = hasSideCar;
         this.engine = new MotorcycleEngine(horsepower, fuelType);
+        this.maxSpeed = maxSpeed;
     }
 
     @Override
@@ -19,7 +20,15 @@ public class Motorcycle extends Vehicle {
             default -> throw new IllegalStateException("Unexpected value: " + this.engine.fuelType);
         };
         for (int i = 0; i < 10; i++) {
-            System.out.println(message + String.format("%.2f", ((engine.horsepower * fuelMod) * Math.exp(Math.sqrt(i)) / 2) * (hasSidecar ? 0.8 : 1.0)));
+            double currentSpeed = (engine.horsepower * fuelMod) * Math.exp(Math.sqrt(i)) / 2 * (hasSidecar ? 0.8 : 1.0);
+
+            if(currentSpeed > this.maxSpeed) {
+                System.out.println(message + maxSpeed);
+            }else{
+                System.out.println(message + String.format("%.2f", currentSpeed));
+            }
+
+
         }
     }
 }
