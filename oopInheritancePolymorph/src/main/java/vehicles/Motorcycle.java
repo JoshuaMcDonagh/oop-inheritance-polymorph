@@ -7,7 +7,6 @@ public class Motorcycle extends Vehicle {
         super(make, model, maxSpeed);
         this.hasSidecar = hasSideCar;
         this.engine = new MotorcycleEngine(horsepower, fuelType);
-        this.maxSpeed = maxSpeed;
     }
 
     @Override
